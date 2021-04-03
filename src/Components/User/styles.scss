@@ -1,0 +1,14 @@
+@import "../../Styles/variables.scss";
+
+.user {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+  border: 2px solid black;
+  width: 100%;
+  color: $ivory;
+  background-color: $gunMetal;
+  padding: 5px;
+}

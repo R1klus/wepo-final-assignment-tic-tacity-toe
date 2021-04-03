@@ -1,0 +1,16 @@
+@import "../../Styles/variables.scss";
+
+.match {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  min-height: 10em;
+  margin-bottom: 0.5em;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  border: 2px solid black;
+  color: $ivory;
+  background-color: $gunMetal;
+}

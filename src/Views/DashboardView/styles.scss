@@ -1,0 +1,14 @@
+
+
+.dashboard {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+
+  .users {
+    margin-top: 40px;
+  }
+  .matches{
+    margin-top: 40px;
+  }
+}

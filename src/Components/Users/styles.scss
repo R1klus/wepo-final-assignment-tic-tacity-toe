@@ -1,0 +1,10 @@
+.users {
+  display: flex;
+  flex-flow: column wrap;
+  width: 15%;
+  align-items: center;
+
+  h2 {
+    font-weight: bolder;
+  }
+}

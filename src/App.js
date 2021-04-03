@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./Styles/index.scss"
+import React from 'react';
+import {Switch, Route} from 'react-router-dom';
+import WelcomeView from './Views/WelcomeView';
+import DashboardView from './Views/DashboardView';
+import {noAuth, useAuth} from "./Components/Authorization";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Switch>
+            <Route exact path="/" component={noAuth(WelcomeView)} />
+            <Route exact path="/dashboard" component={useAuth(DashboardView)} />
+        </Switch>
+    )
 }
 
 export default App;

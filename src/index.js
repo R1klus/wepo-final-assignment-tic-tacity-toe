@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter as Router} from "react-router-dom"
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware  } from 'redux';
+import reducers from './Redux/Reducers';
+import socket from "./Redux/Middlewares/socketMiddleware";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <Router>
+          <Provider store={createStore(reducers, applyMiddleware(socket))}>
+              <App />
+          </Provider>
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

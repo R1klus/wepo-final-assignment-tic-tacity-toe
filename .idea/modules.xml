@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/final-assignment-tick-tackity-toe.iml" filepath="$PROJECT_DIR$/.idea/final-assignment-tick-tackity-toe.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/small_assignment3/.idea/small_assignment3.iml" filepath="$USER_HOME$/Desktop/small_assignment3/.idea/small_assignment3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../wepo-small-assignment-3/.idea/wepo-small-assignment-3.iml" filepath="$PROJECT_DIR$/../wepo-small-assignment-3/.idea/wepo-small-assignment-3.iml" />
     </modules>
   </component>
 </project>

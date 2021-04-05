@@ -5,12 +5,15 @@
   flex-flow: row nowrap;
   align-items: center;
   padding: 0 30px;
+  margin-bottom: 3em;
   width: 100%;
-  box-shadow: 1px 1px 10px $gunMetal;
-  background-color: $gunMetal;
+  box-shadow: 1px 1px 10px $neonBlue;
+  background-color: $blueMetal;
   height: 100px;
+
   .userName {
-    color: $timberWolf;
+    color: $neonBlue;
+    text-shadow: 1px 1px 10px $neonBlue;
     font-weight: bolder;
     width: 100%;
   }

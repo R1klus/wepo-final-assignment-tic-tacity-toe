@@ -1,4 +1,3 @@
-
 import "./styles.scss";
 
 const PlayerCard = ({username, symbol}) => (

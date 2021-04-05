@@ -53,12 +53,12 @@ export const setupListeners = (store, socket) => {
 
     socket.on("game_move", (symbol, idx) => store.dispatch(({
         type: constants.GAME_MOVE,
-        payload: {symbol:symbol, idx:idx}
+        payload: {symbol: symbol, idx: idx}
     })));
 
     socket.on("match_ended", (matchId, winner) => store.dispatch(({
         type: constants.MATCH_ENDED,
-        payload: {matchId:matchId, winner:winner}
+        payload: {matchId: matchId, winner: winner}
     })));
 
 }

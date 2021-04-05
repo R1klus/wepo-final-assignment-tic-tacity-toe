@@ -7,7 +7,7 @@ const connectSocket = info => ({
 
 const emitToSocket = (evt, body) => ({
     type: constants.SOCKET_EMISSION,
-    payload: { evt, body }
+    payload: {evt, body}
 })
 
 export {

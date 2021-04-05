@@ -10,28 +10,28 @@ const socketMiddleware =
     store => {
         setupListeners(store, socket);
         return next => action => {
-            if (action.type === constants.CONNECT_SOCKET){
+            if (action.type === constants.CONNECT_SOCKET) {
                 const {sessionID, username} = action.payload;
                 socket.auth = {sessionID: sessionID, username: username};
                 socket.connect()
             }
 
-            if (action.type === constants.SOCKET_EMISSION){
+            if (action.type === constants.SOCKET_EMISSION) {
                 const {evt, body} = action.payload;
                 socket.emit(evt, body);
             }
 
-            if (action.type === constants.ACCEPT_CHALLENGE){
+            if (action.type === constants.ACCEPT_CHALLENGE) {
                 const {matchId, toUserId} = action.payload;
                 socket.emit("game_challenge_accepted", matchId, toUserId);
             }
 
-            if (action.type === constants.LEAVE){
+            if (action.type === constants.LEAVE) {
                 socket.emit("leave");
                 socket.disconnect();
             }
 
-            if(action.type === constants.MAKE_MOVE){
+            if (action.type === constants.MAKE_MOVE) {
                 const {matchId, symbol, idx, isGameWinningMove, isDraw} = action.payload;
                 socket.emit("game_move", matchId, symbol, idx, isGameWinningMove, isDraw)
             }

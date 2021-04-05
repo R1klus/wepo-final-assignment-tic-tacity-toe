@@ -4,9 +4,16 @@
   display: flex;
   flex-flow: column wrap;
   width: 15%;
+  height: fit-content;
   align-items: center;
+  border: 2px solid $neonBlue;
+  box-shadow: 1px 1px 25px $neonBlue;
+  border-radius: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 10px;
   h2 {
     font-weight: bolder;
-    color: $gunMetal;
+    color: $neonBlue;
   }
 }

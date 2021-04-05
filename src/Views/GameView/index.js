@@ -3,8 +3,7 @@ import Button from '../../Components/Button';
 import PlayerCard from "../../Components/PlayerCard";
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory, useParams} from "react-router-dom";
-import {useEffect, useRef, useState} from "react";
-import {emitToSocket} from "../../Redux/Actions/socketActions";
+import {useEffect, useState} from "react";
 import {clearMatch, gameMove} from "../../Redux/Actions/gameActions";
 import {clearChallenge} from "../../Redux/Actions/challengeActions";
 import {removeChallenge} from "../../Redux/Actions/challengesActions";
@@ -120,7 +119,6 @@ const GameView = () => {
         dispatch(clearMatch())
         dispatch(clearChallenge())
         dispatch(removeChallenge(opponent.userID))
-        console.log("going to dashboard")
         history.push("/dashboard")
     }
 
@@ -131,9 +129,9 @@ const GameView = () => {
     useEffect(() => {
         if (won) {
             document.getElementById("redirect-dashboard").disabled = false;
-        }else if (draw) {
+        } else if (draw) {
             document.getElementById("redirect-dashboard").disabled = false;
-        }else {
+        } else {
             let buttons = document.getElementsByClassName("game-buttons");
             for (let button of buttons) {
                 if (!disabledButtons.includes(button.id)) {
@@ -163,7 +161,6 @@ const GameView = () => {
         if (game.idx !== null) {
             if (game.won) {
                 disableGameBoard()
-                console.log(game, "game inside useEffect")
                 setWon(game.won)
                 setWinner(game.winner.username)
                 setYourTurn(false)
@@ -194,10 +191,13 @@ const GameView = () => {
     }, [])
 
     useEffect(() => {
-        for(let user of users){
-            if (!user.connected){
-                if (user.userID === opponent.userID){
+        for (let user of users) {
+            if (!user.connected) {
+                if (user.userID === opponent.userID) {
                     dispatch(gameMove(id, player.symbol, null, true, false))
+                    setYourTurn(false)
+                    setWon(true)
+                    setWinner(player.username)
                 }
             }
         }
@@ -247,15 +247,15 @@ const GameView = () => {
 
                 <PlayerCard username={player.username} symbol={player.symbol}/>
                 <div className="game-board container">
-                    <Button class={"game-buttons button"} id={"gameButton" + 1} onClick={(e) => makeMove(e, 1)}/>
-                    <Button class={"game-buttons button"} id={"gameButton" + 2} onClick={(e) => makeMove(e, 2)}/>
-                    <Button class={"game-buttons button"} id={"gameButton" + 3} onClick={(e) => makeMove(e, 3)}/>
-                    <Button class={"game-buttons button"} id={"gameButton" + 4} onClick={(e) => makeMove(e, 4)}/>
-                    <Button class={"game-buttons button"} id={"gameButton" + 5} onClick={(e) => makeMove(e, 5)}/>
-                    <Button class={"game-buttons button"} id={"gameButton" + 6} onClick={(e) => makeMove(e, 6)}/>
-                    <Button class={"game-buttons button"} id={"gameButton" + 7} onClick={(e) => makeMove(e, 7)}/>
-                    <Button class={"game-buttons button"} id={"gameButton" + 8} onClick={(e) => makeMove(e, 8)}/>
-                    <Button class={"game-buttons button"} id={"gameButton" + 9} onClick={(e) => makeMove(e, 9)}/>
+                    <Button className={"game-buttons button"} id={"gameButton" + 1} onClick={(e) => makeMove(e, 1)}/>
+                    <Button className={"game-buttons button"} id={"gameButton" + 2} onClick={(e) => makeMove(e, 2)}/>
+                    <Button className={"game-buttons button"} id={"gameButton" + 3} onClick={(e) => makeMove(e, 3)}/>
+                    <Button className={"game-buttons button"} id={"gameButton" + 4} onClick={(e) => makeMove(e, 4)}/>
+                    <Button className={"game-buttons button"} id={"gameButton" + 5} onClick={(e) => makeMove(e, 5)}/>
+                    <Button className={"game-buttons button"} id={"gameButton" + 6} onClick={(e) => makeMove(e, 6)}/>
+                    <Button className={"game-buttons button"} id={"gameButton" + 7} onClick={(e) => makeMove(e, 7)}/>
+                    <Button className={"game-buttons button"} id={"gameButton" + 8} onClick={(e) => makeMove(e, 8)}/>
+                    <Button className={"game-buttons button"} id={"gameButton" + 9} onClick={(e) => makeMove(e, 9)}/>
                 </div>
                 <PlayerCard username={opponent.username} symbol={opponent.symbol}/>
             </div>

@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { connectSocket } from '../../Redux/Actions/socketActions';
+import {useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {connectSocket} from '../../Redux/Actions/socketActions';
 import './styles.scss';
 import Button from '../../Components/Button';
 
@@ -8,7 +8,7 @@ const WelcomeView = () => {
     const dispatch = useDispatch();
     const [username, setUsername] = useState("");
 
-    if (localStorage.getItem("s.id")){
+    if (localStorage.getItem("s.id")) {
         const sID = localStorage.getItem("s.id")
         dispatch(connectSocket({sessionID: sID}));
     }
@@ -28,8 +28,9 @@ const WelcomeView = () => {
                     type="text"
                     placeholder="Enter your username..."
                     value={username}
-                    onChange={e => setUsername(e.target.value)} />
-                <Button onClick={() => onChooseUserName(username)} style={{ float: 'right', marginTop: 10 }}>Select</Button>
+                    onChange={e => setUsername(e.target.value)}/>
+                <Button onClick={() => onChooseUserName(username)}
+                        style={{float: 'right', marginTop: 10}}>Select</Button>
             </div>
         </div>
     )

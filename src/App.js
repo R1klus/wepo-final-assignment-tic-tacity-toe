@@ -9,9 +9,9 @@ import {noAuth, useAuth} from "./Components/Authorization";
 function App() {
     return (
         <Switch>
-            <Route exact path="/" component={noAuth(WelcomeView)} />
-            <Route exact path="/dashboard" component={useAuth(DashboardView)} />
-            <Route exact path="/match/:id" component={useAuth(GameView)} />
+            <Route exact path="/" component={noAuth(WelcomeView)}/>
+            <Route exact path="/dashboard" component={useAuth(DashboardView)}/>
+            <Route exact path="/match/:id" component={useAuth(GameView)}/>
         </Switch>
     )
 }

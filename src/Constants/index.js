@@ -31,8 +31,6 @@ const MATCH_ENDED = "MATCH_ENDED"
 const CLEAR_MATCH = "CLEAR_MATCH"
 
 
-
-
 export {
     ADD_SESSION,
     USERS,

@@ -9,14 +9,24 @@
   .input-container {
     margin-top: 20px;
     width: 300px;
+    color: $neonBlue;
+
     label {
       font-weight: bold;
       font-size: 1.3em;
       display: block;
     }
+
     input {
       margin-top: 10px;
       width: 100%;
+      background-color: $blueMetal;
+      border: 1px solid $neonBlue;
+      color: $neonBlue;
+    }
+
+    input::placeholder {
+      color: $neonBlue;
     }
   }
 }

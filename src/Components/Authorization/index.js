@@ -5,12 +5,11 @@ import {Redirect} from "react-router-dom"
 function useAuth(WrappedComponent) {
     return connect(mapStateToProps, null)(class extends React.Component {
         render() {
-            if (!this.props.session.connected){
+            if (!this.props.session.connected) {
                 return (
                     <Redirect to={"/"}/>
                 )
-            }
-            else {
+            } else {
                 return (
                     <div>
                         <WrappedComponent/>
@@ -24,13 +23,11 @@ function useAuth(WrappedComponent) {
 function noAuth(WrappedComponent) {
     return connect(mapStateToProps, null)(class extends React.Component {
         render() {
-            if (this.props.session.connected){
-                console.log("session invalid")
+            if (this.props.session.connected) {
                 return (
                     <Redirect to={"/dashboard"}/>
                 )
-            }
-            else {
+            } else {
                 return (
                     <div>
                         <WrappedComponent/>

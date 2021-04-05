@@ -1,14 +1,23 @@
 @import "../../styles/variables.scss";
 
 .button {
-  background-color: $gunMetal;
-  color: $timberWolf;
+  background-color: $blush;
+  color: $neonBlue;
   padding: 10px 20px;
-  border: solid 1px $timberWolf;
+  border: solid 1px $blush;
   transition: background-color .5s;
-  box-shadow: 1px 1px 10px $gunMetal;
+  box-shadow: 1px 1px 10px $blush;
+
+  &:disabled {
+    pointer-events: none;
+    background-color: $dark;
+    color: $blush;
+  }
+
   &:hover {
     cursor: pointer;
-    background-color: lighten($gunMetal, 10%);
+    background-color: lighten($neonBlue, 10%);
+    color: $blush;
   }
+
 }

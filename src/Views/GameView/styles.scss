@@ -7,14 +7,16 @@
   align-items: center;
 }
 
-#game-header{
+#game-header {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
-  h2{
+  color: $neonBlue;
+
+  h2 {
     padding-top: 1em;
     display: flex;
     flex-flow: row nowrap;
@@ -23,6 +25,7 @@
     width: 100%;
     height: 100%;
     font-weight: bolder;
+    text-shadow: 1px 1px 10px $neonBlue;
   }
 }
 
@@ -34,9 +37,11 @@
   width: 40em;
   height: 40em;
   padding: 10px 10px 10px 10px;
-  border: 1px solid $gunMetal;
-  box-shadow: 1px 1px 50px $gunMetal;
+  border: 1px solid $neonBlue;
+  border-radius: 30px;
+  box-shadow: 1px 1px 50px $neonBlue;
   margin-top: 5%;
+
   .game-buttons {
     display: flex;
     justify-content: center;

@@ -2,11 +2,11 @@
 
 .button {
   background-color: $gunMetal;
-  color: white;
+  color: $timberWolf;
   padding: 10px 20px;
-  border: none;
-  border: solid 1px $ivory;
+  border: solid 1px $timberWolf;
   transition: background-color .5s;
+  box-shadow: 1px 1px 10px $gunMetal;
   &:hover {
     cursor: pointer;
     background-color: lighten($gunMetal, 10%);

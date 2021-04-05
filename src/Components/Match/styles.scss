@@ -6,11 +6,12 @@
   justify-content: center;
   align-items: center;
   width: 40%;
-  min-height: 10em;
+  height: 10em;
   margin-bottom: 0.5em;
   margin-left: 0.25em;
   margin-right: 0.25em;
-  border: 2px solid black;
-  color: $ivory;
+  border: 2px solid $timberWolf;
+  color: $timberWolf;
   background-color: $gunMetal;
+  box-shadow: 1px 1px 10px $gunMetal;
 }

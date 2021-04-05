@@ -2,16 +2,16 @@
 
 .navigation {
   display: flex;
+  flex-flow: row nowrap;
   align-items: center;
   padding: 0 30px;
   width: 100%;
-  top: 0;
-  right: 0;
-  left: 0;
+  box-shadow: 1px 1px 10px $gunMetal;
   background-color: $gunMetal;
   height: 100px;
   .userName {
-    color: white;
+    color: $timberWolf;
     font-weight: bolder;
+    width: 100%;
   }
 }

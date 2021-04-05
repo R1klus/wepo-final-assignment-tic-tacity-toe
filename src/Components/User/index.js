@@ -6,26 +6,16 @@ import {emitToSocket} from "../../Redux/Actions/socketActions";
 import {acceptChallenge} from "../../Redux/Actions/challengeActions";
 import {useEffect, useState} from "react";
 import { v4 as uuid} from "uuid";
+import {useHistory} from "react-router-dom";
 
 
 const User = ({ username, userID, connected }) => {
     const dispatch = useDispatch();
-    const challenges = useSelector(({challenges}) => challenges);
-    const [challenge, setChallenge] = useState({});
+    const history = useHistory();
+    const challenges = useSelector(({challenges}) => challenges)
+    const [challenger, setChallenger] = useState(undefined)
     const acceptDeclineButtons = "acceptDeclineButtons" + userID
     const challengeButton = "challengeButton" + userID
-
-
-    useEffect(() => {
-        if (challenges.find(challenger => challenger.userID === userID)){
-            setChallenge(challenges.find(challenger => challenger.userID === userID))
-        }
-    }, [challenges, userID])
-
-    useEffect(() => {
-        setChallenge(challenge)
-    }, [challenge])
-
 
     const onChallenge = () => {
         let button = document.getElementById(challengeButton)
@@ -37,15 +27,28 @@ const User = ({ username, userID, connected }) => {
     const onChallengeResponse = (accepted) => {
         document.getElementById(acceptDeclineButtons).style.display = "none";
 
-        setChallenge({})
+        setChallenger(undefined)
         if (accepted){
             const matchID = uuid();
             dispatch(acceptChallenge(matchID, userID))
+            history.push("/match/"+matchID)
         }
         else {
             dispatch(emitToSocket("game_challenge_declined", userID))
         }
     }
+
+    useEffect(() => {
+        setChallenger(challenges.find(c => c.userID === userID))
+    }, [challenges, userID])
+
+    useEffect(() => {
+        setChallenger(challenger)
+    }, [challenger])
+
+    useEffect(() => {
+        setChallenger(challenges.find(c => c.userID === userID))
+    }, [])
 
     return (
         <div className="user">
@@ -55,12 +58,12 @@ const User = ({ username, userID, connected }) => {
             <div>
                 {connected ? "Connected":"Disconnected"}
             </div>
-            {Object.keys(challenge).length === 0 && <Button id={challengeButton} onClick={onChallenge}>Challenge</Button>}
-            {Object.keys(challenge).length !== 0 &&
-            <div id={acceptDeclineButtons}>
-                <Button onClick={() => {onChallengeResponse(true)}}>Accept</Button>
-                <Button onClick={() => {onChallengeResponse(false)}}>Decline</Button>
-            </div>
+            {challenger === undefined ? <Button id={challengeButton} onClick={onChallenge}>Challenge</Button>
+            :
+                <div id={acceptDeclineButtons}>
+                    <Button onClick={() => {onChallengeResponse(true)}}>Accept</Button>
+                    <Button onClick={() => {onChallengeResponse(false)}}>Decline</Button>
+                </div>
             }
 
         </div>

@@ -5,6 +5,11 @@ const acceptChallenge = (matchId, toUserId) => ({
     payload: {matchId: matchId, toUserId:toUserId}
 })
 
+const clearChallenge = () => ({
+    type: constants.CLEAR_CHALLENGE
+})
+
 export {
-    acceptChallenge
+    acceptChallenge,
+    clearChallenge
 }

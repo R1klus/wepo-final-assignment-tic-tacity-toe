@@ -1,0 +1,16 @@
+@import "../../styles/variables.scss";
+
+.player-card {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $gunMetal;
+  box-shadow: 1px 1px 50px $gunMetal;
+  background-color: $gunMetal;
+  color: $timberWolf;
+  height: 5em;
+  width: 15em;
+  margin-left: 2em;
+  margin-right: 2em;
+}

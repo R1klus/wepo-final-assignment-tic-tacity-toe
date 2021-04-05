@@ -18,7 +18,10 @@ const Match = ({ matchId, participants, winner, isOngoing }) => {
                 {participants[1].username} : {participants[1].symbol}
             </div>
             <div>
-                {winner === undefined ? "" : winner}
+                {winner ? "Winner: "+winner.username : ""}
+            </div>
+            <div>
+                {!winner && !isOngoing && "Draw"}
             </div>
             <div>
                 {isOngoing ? "Is on going":"Finished"}

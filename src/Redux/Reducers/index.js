@@ -4,6 +4,7 @@ import session from "./sessionReducer";
 import challenges from "./challengesReducer";
 import challenge from "./challengeReducer";
 import matches from "./matchesReducer";
+import game from "./gameReducer";
 
 
 export default combineReducers({
@@ -11,5 +12,6 @@ export default combineReducers({
     session,
     challenges,
     challenge,
-    matches
+    matches,
+    game
 })

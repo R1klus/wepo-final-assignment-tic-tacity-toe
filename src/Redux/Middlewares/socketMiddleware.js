@@ -30,6 +30,12 @@ const socketMiddleware =
                 socket.emit("leave");
                 socket.disconnect();
             }
+
+            if(action.type === constants.MAKE_MOVE){
+                const {matchId, symbol, idx, isGameWinningMove, isDraw} = action.payload;
+                socket.emit("game_move", matchId, symbol, idx, isGameWinningMove, isDraw)
+            }
+
             return next(action);
         }
     }

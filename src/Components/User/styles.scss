@@ -6,9 +6,10 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 1em;
-  border: 2px solid black;
-  width: 100%;
-  color: $ivory;
+  border: 2px solid $timberWolf;
+  width: 90%;
+  color: $timberWolf;
   background-color: $gunMetal;
   padding: 5px;
+  box-shadow: 1px 1px 10px $gunMetal;
 }
